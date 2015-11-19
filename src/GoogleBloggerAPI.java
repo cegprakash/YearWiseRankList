@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import com.google.gdata.client.GoogleService;
+import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.data.Entry;
 import com.google.gdata.data.PlainTextConstruct;
 import com.google.gdata.data.dublincore.Date;
@@ -15,13 +16,21 @@ import com.google.gdata.util.ServiceException;
 
 
 public class GoogleBloggerAPI {
-	final static String GOOGLE_ACCOUNT_USERNAME = ""; // Fill in google account username
-	final static String GOOGLE_ACCOUNT_PASSWORD = ""; // Fill in google account password
+	final static String GOOGLE_ACCOUNT_USERNAME = "cegcodingcamp"; // Fill in google account username
+	final static String GOOGLE_ACCOUNT_PASSWORD = "cegcampcoding"; // Fill in google account password
 
+	private static GoogleService service = null;
+	
+    private static GoogleService getService() throws IOException{
+    	if(service == null){
+    		service = new GoogleService("blogger", "exampleCo-exampleApp-1");
+	        service.setOAuth2Credentials(GoogleCredentialsHelper.getCredentials());
+	    }
+    	return service;
+    }
+	
 	public static void publishRankList(List<User> users) throws ServiceException, IOException{
-		GoogleService service = new GoogleService("blogger", "exampleCo-exampleApp-1");
-	    service.setUserCredentials(GOOGLE_ACCOUNT_USERNAME, GOOGLE_ACCOUNT_PASSWORD);
-	    System.out.println(createPost(service,"6075750740688262534","CEG Coding Camp ranklist",getContent(users),"cegprakash"));	    
+	    System.out.println(createPost(getService(),"6075750740688262534","AU10 Live Ranklist",getContent(users),"cegcodingcamp"));
 	}
 	
 	static String getContent(List<User> users){
@@ -69,7 +78,7 @@ public class GoogleBloggerAPI {
 		  myEntry.setContent(new PlainTextConstruct(content));
 
 		  // Ask the service to insert the new entry
-		  URL postUrl = new URL("http://www.blogger.com/feeds/" + blogID + "/posts/default/1872678104786978995");
+		  URL postUrl = new URL("http://www.blogger.com/feeds/" + blogID + "/posts/default/7630327530641792962");
 		  return myService.update(postUrl, myEntry);
 		}
 }
