@@ -89,7 +89,7 @@ public class ApplicationMain {
 	 	}
     	System.out.println("Trying to login...");
     	userNameElement.sendKeys("cegprakash");
-	    passwordElement.sendKeys("footballmurugesan");
+	    passwordElement.sendKeys("itrixceg");
 	    submitButtons.get(0).click();
 	}
 	

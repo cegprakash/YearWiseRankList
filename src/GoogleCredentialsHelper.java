@@ -19,7 +19,7 @@ public class GoogleCredentialsHelper {
     private static final String REDIRECT_URI = "http://cegcodingcamp.blogspot.in";
 
     public static GoogleCredential getCredentials() throws IOException{
-		if(credential == null){
+		//if(credential == null){
 			HttpTransport httpTransport = new NetHttpTransport();
 	        JsonFactory jsonFactory = new JacksonFactory();
 	
@@ -27,8 +27,8 @@ public class GoogleCredentialsHelper {
 	                httpTransport, jsonFactory, CLIENT_ID, CLIENT_SECRET,
 	                Arrays.asList("https://www.googleapis.com/auth/drive", 
 	                              "https://spreadsheets.google.com/feeds", 
-	                              "https://docs.google.com/feeds",
-	                			"https://www.googleapis.com/auth/blogger"))
+	                              "https://docs.google.com/feeds"
+	                			))
 	                .setAccessType("online")
 	                .setApprovalPrompt("auto").build();
 	
@@ -42,7 +42,7 @@ public class GoogleCredentialsHelper {
 	
 	        GoogleTokenResponse response = flow.newTokenRequest(code).setRedirectUri(REDIRECT_URI).execute();
 	        credential = new GoogleCredential().setFromTokenResponse(response);
-		}
+		//}
 		return credential;
 	}
 }
