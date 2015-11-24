@@ -108,10 +108,12 @@ public class ApplicationMain {
 		//Navigate to the page		   
 		//System.out.println("after logging content : "+driver.findElement(By.xpath(".//body")).getText());
 		while(true){
-		    users = getEmails(getSpojRankList());	
+			users = getSpojRankList();
+			int totalParticipants = users.size();
+		    users = getEmails(users);	
 		    users = GoogleSpreadSheetAPI.filterUsers(users, 1);
 		    Collections.sort(users);
-		    GoogleBloggerAPI.publishRankList(users);	
+		    GoogleBloggerAPI.publishRankList(users, totalParticipants);	
 		    TimeUnit.MINUTES.sleep(1);
 		}
 	}

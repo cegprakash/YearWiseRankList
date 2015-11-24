@@ -14,15 +14,15 @@ public class GoogleBloggerAPI {
     private static final String POST_ID = "7630327530641792962";
 	
 	
-    public static void publishRankList(List<User> users) throws ServiceException, IOException, GeneralSecurityException{
-	    udpatePost("AU10 Live Ranklist",getContent(users));
+    public static void publishRankList(List<User> users, int totalParticipants) throws ServiceException, IOException, GeneralSecurityException{
+	    udpatePost("AU10 Live Ranklist",getContent(users, totalParticipants));
 	}
 	
-	static String getContent(List<User> users){
+	static String getContent(List<User> users, int totalParticipants){
 		String year[] = {"I","II","III","IV"};
 		String result="";
 		Calendar calendar = GregorianCalendar.getInstance();		
-		result += "Last updated at "+calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE)+" IST<br/><br/>";
+		result += "Last updated at "+calendar.get(Calendar.HOUR_OF_DAY)+":"+String.format("%02d",calendar.get(Calendar.MINUTE))+" IST<br/><br/>";
 		int i=0,j;
 		
 		for(int k=0;k<year.length;k++){
@@ -39,13 +39,13 @@ public class GoogleBloggerAPI {
 				result+="<td/>";
 				result+="<td>";
 				String color="";
-				if((double)users.get(i).rank / users.size() * 100.0 < 10.0 )
+				if((double)users.get(i).rank / totalParticipants * 100.0 < 10.0 )
 					color = "#FF0000";				
-				else if((double)users.get(i).rank / users.size() * 100.0 < 30.0 )
+				else if((double)users.get(i).rank / totalParticipants * 100.0 < 30.0 )
 					color = "#AEB404";
-				else if((double)users.get(i).rank / users.size() * 100.0 < 50.0 )
+				else if((double)users.get(i).rank / totalParticipants * 100.0 < 50.0 )
 					color = "#0033CC";
-				else if((double)users.get(i).rank / users.size() * 100.0 < 70.0 )
+				else if((double)users.get(i).rank / totalParticipants * 100.0 < 70.0 )
 					color = "#31B404";
 				else color = "#BEBEBE";
 				result+="<font color=\""+color+"\">";
