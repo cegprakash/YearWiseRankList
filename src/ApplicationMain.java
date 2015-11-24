@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -8,7 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -93,7 +93,7 @@ public class ApplicationMain {
 	    submitButtons.get(0).click();
 	}
 	
-	public static void main(String args[]) throws IOException, InterruptedException, AuthenticationException, ServiceException{
+	public static void main(String args[]) throws IOException, InterruptedException, AuthenticationException, ServiceException, GeneralSecurityException{
 		List<User> users = new ArrayList<User>();
 		
 		Capabilities capabilities = new DesiredCapabilities();
@@ -104,12 +104,11 @@ public class ApplicationMain {
                 "C:\\PhantomJS Driver\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe"
             );
 	    driver = new PhantomJSDriver(capabilities);
+	    loginSpoj();
+		//Navigate to the page		   
+		//System.out.println("after logging content : "+driver.findElement(By.xpath(".//body")).getText());
 		while(true){
-			//Navigate to the page		   
-		    loginSpoj();
-			//System.out.println("after logging content : "+driver.findElement(By.xpath(".//body")).getText());
-		    users = getEmails(getSpojRankList());
-	
+		    users = getEmails(getSpojRankList());	
 		    users = GoogleSpreadSheetAPI.filterUsers(users, 1);
 		    Collections.sort(users);
 		    GoogleBloggerAPI.publishRankList(users);	
