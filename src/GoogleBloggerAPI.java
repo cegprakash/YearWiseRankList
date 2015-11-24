@@ -38,7 +38,19 @@ public class GoogleBloggerAPI {
 				result+=users.get(i).rank;
 				result+="<td/>";
 				result+="<td>";
-				result+=users.get(i).name;
+				String color="";
+				if((double)users.get(i).rank / users.size() * 100.0 < 10.0 )
+					color = "#FF0000";				
+				else if((double)users.get(i).rank / users.size() * 100.0 < 30.0 )
+					color = "#AEB404";
+				else if((double)users.get(i).rank / users.size() * 100.0 < 50.0 )
+					color = "#0033CC";
+				else if((double)users.get(i).rank / users.size() * 100.0 < 70.0 )
+					color = "#31B404";
+				else color = "#BEBEBE";
+				result+="<font color=\""+color+"\">";
+				result+="<b>"+users.get(i).name+"</b>";				
+				result+="</font>";
 				result+="<td/>";
 				result+="<td>";
 				result+=users.get(i).college;
