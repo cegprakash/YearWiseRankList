@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -22,12 +24,13 @@ import com.google.gdata.util.ServiceException;
 public class ApplicationMain {
 	
 	static DesiredCapabilities capabilities;
-    static PhantomJSDriver driver;
+  static PhantomJSDriver driver;
+//    static FirefoxDriver driver;
 
     
 	static List<User> getSpojRankList(){
 		List<User> users = new ArrayList<User>();
-		driver.get("http://www.spoj.com/AU9/ranks");
+		driver.get("http://www.spoj.com/AU10/ranks");
 		//System.out.println("ranks page content : "+driver.findElement(By.xpath(".//body")).getText());
 		List<WebElement> rowElements = driver.findElements(By.xpath("//table[@class='problems']//tr"));
 		for(int i=1;i<rowElements.size();i++){
@@ -45,7 +48,8 @@ public class ApplicationMain {
 	
 	static List<User> getEmails(List<User> users){
 		List<User> filteredUsers = new ArrayList<User>();
-		driver.get("http://www.spoj.com/groups/3583/"); //AU9
+		driver.get("http://www.spoj.com/groups/3830/"); // AU10
+//		driver.get("http://www.spoj.com/groups/3583/"); //AU9
 		//driver.get("http://www.spoj.com/groups/3179/"); //AU8
 		List<WebElement> rowElements = driver.findElements(By.xpath(".//table[@class='table table-condensed']"));
 		rowElements=rowElements.get(rowElements.size()-1).findElements(By.xpath(".//tr"));
@@ -85,11 +89,11 @@ public class ApplicationMain {
 	 	List<WebElement> submitButtons = driver.findElements(By.xpath("//span[@class='fa fa-sign-in']"));
 	 	while(!submitButtons.get(0).isDisplayed() || !userNameElement.isDisplayed()){	 		
 	 		System.out.println("Waiting for pageload..");
-		 	Thread.sleep(500);
+		 	Thread.sleep(500);	
 	 	}
     	System.out.println("Trying to login...");
-    	userNameElement.sendKeys("cegprakash");
-	    passwordElement.sendKeys("itrixceg");
+    	userNameElement.sendKeys("harikrish");
+	    passwordElement.sendKeys("H@ri2108");
 	    submitButtons.get(0).click();
 	}
 	
@@ -104,6 +108,8 @@ public class ApplicationMain {
                 "C:\\PhantomJS Driver\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe"
             );
 	    driver = new PhantomJSDriver(capabilities);
+//		driver = new FirefoxDriver(DesiredCapabilities.firefox());
+		
 	    loginSpoj();
 		//Navigate to the page		   
 		//System.out.println("after logging content : "+driver.findElement(By.xpath(".//body")).getText());
