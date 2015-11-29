@@ -59,19 +59,48 @@ public class ApplicationMain {
 			String name = columnElements.get(1).getText();
 			String userName = columnElements.get(1).findElement(By.xpath(".//a")).getText();
 			name = name.substring(userName.length()).trim();
-			String mailId = columnElements.get(2).getText();
+			String mailId = columnElements.get(2).getText().trim();
 			
 			boolean found = false;
 			for(int j=0;j<users.size();j++){
-				if(name.compareTo(users.get(j).name)==0){
+				
+				if( ("Pavithran Ravichandran".compareTo(users.get(j).name)==0 && 
+						"paviravichennai@gmail.com".compareTo(mailId)==0)
+				||  ("ram_bhai".compareTo(users.get(j).name)==0 && 
+						"ramprasath.cse.cit@gmail.com".compareTo(mailId)==0)						
+				||  ("gibibyte".compareTo(users.get(j).name)==0 && 
+				"sreenidhi996@gmail.com".compareTo(mailId)==0)
+				||  ("aksh".compareTo(users.get(j).name)==0 && 
+				"akshayred@gmail.com".compareTo(mailId)==0)
+				|| ("nanduV".compareTo(users.get(j).name)==0 && 
+				"nanduvinodan@outlook.com".compareTo(mailId)==0)
+				|| ("Lobsteravr".compareTo(users.get(j).name)==0 && 
+				"arvind.piccolo@gmail.com".compareTo(mailId)==0)
+				|| ("kk".compareTo(users.get(j).name)==0 && 
+				"skirenkumar@yahoo.in".compareTo(mailId)==0)
+				|| ("Avi".compareTo(users.get(j).name)==0 && 
+				"avi2796@gmail.com".compareTo(mailId)==0)
+				|| ("mac".compareTo(users.get(j).name)==0 && 
+				"mac25796@gmail.com".compareTo(mailId)==0)
+				|| ("streetfunker".compareTo(users.get(j).name)==0 && 
+				"asarvindsrinath@gmail.com".compareTo(mailId)==0)
+				|| ("dk_11".compareTo(users.get(j).name)==0 && 
+				"deepakcr974@gmail.com".compareTo(mailId)==0)
+				
+				 
+				|| name.compareTo(users.get(j).name)==0
+				
+				)											
+				{
 					users.get(j).userName = userName.trim();
 					users.get(j).email = mailId.trim();
-					//System.out.println(users.get(j).userName+" "+users.get(j).email);
+					//System.out.println(users.get(j).userName+" "+users.get(j).rank);
 					filteredUsers.add(users.get(j));
 					users.remove(j);
 					found = true;
 					break;
 				}
+				
 			}
 			if(!found){
 				//System.out.println((unranked++) +" Unable to find the rank for the user : "+name);
@@ -83,7 +112,7 @@ public class ApplicationMain {
 	
 	static void loginSpoj() throws InterruptedException{
 		driver.get("http://www.spoj.com/login");
-	    driver.manage().window().setSize( new Dimension( 1124, 850 ) );
+//	    driver.manage().window().setSize( new Dimension( 1124, 850 ) );
 	 	WebElement userNameElement =  driver.findElement(By.xpath("//input[@id='inputUsername']"));
 	 	WebElement passwordElement = driver.findElement(By.xpath("//input[@id='inputPassword']"));
 	 	List<WebElement> submitButtons = driver.findElements(By.xpath("//span[@class='fa fa-sign-in']"));
