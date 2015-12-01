@@ -15,6 +15,7 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.google.gdata.data.appsforyourdomain.Email;
 import com.google.gdata.util.AuthenticationException;
 import com.google.gdata.util.ServiceException;
 
@@ -39,7 +40,7 @@ public class ApplicationMain {
 			user.name = columnElements.get(1).getText().trim();
 			user.problems_count = Integer.parseInt(columnElements.get(columnElements.size()-2).getText());
 			user.rank = i;
-			//System.out.println(user.name +" "+user.problems_count+" "+user.rank);
+//			System.out.println(user.name +" "+user.problems_count+" "+user.rank);
 			users.add(user);
 		}
 		System.out.println(users.size()+ " users in the ranklist");
@@ -62,34 +63,41 @@ public class ApplicationMain {
 			String mailId = columnElements.get(2).getText().trim();
 			
 			boolean found = false;
-			for(int j=0;j<users.size();j++){
-				
+			for(int j=0;j<users.size();j++){				
 				if( ("Pavithran Ravichandran".compareTo(users.get(j).name)==0 && 
-						"paviravichennai@gmail.com".compareTo(mailId)==0)
-				||  ("ram_bhai".compareTo(users.get(j).name)==0 && 
-						"ramprasath.cse.cit@gmail.com".compareTo(mailId)==0)						
-				||  ("gibibyte".compareTo(users.get(j).name)==0 && 
-				"sreenidhi996@gmail.com".compareTo(mailId)==0)
-				||  ("aksh".compareTo(users.get(j).name)==0 && 
-				"akshayred@gmail.com".compareTo(mailId)==0)
-				|| ("nanduV".compareTo(users.get(j).name)==0 && 
-				"nanduvinodan@outlook.com".compareTo(mailId)==0)
-				|| ("Lobsteravr".compareTo(users.get(j).name)==0 && 
-				"arvind.piccolo@gmail.com".compareTo(mailId)==0)
-				|| ("kk".compareTo(users.get(j).name)==0 && 
-				"skirenkumar@yahoo.in".compareTo(mailId)==0)
-				|| ("Avi".compareTo(users.get(j).name)==0 && 
-				"avi2796@gmail.com".compareTo(mailId)==0)
-				|| ("mac".compareTo(users.get(j).name)==0 && 
-				"mac25796@gmail.com".compareTo(mailId)==0)
-				|| ("streetfunker".compareTo(users.get(j).name)==0 && 
-				"asarvindsrinath@gmail.com".compareTo(mailId)==0)
-				|| ("dk_11".compareTo(users.get(j).name)==0 && 
-				"deepakcr974@gmail.com".compareTo(mailId)==0)
-				
-				 
-				|| name.compareTo(users.get(j).name)==0
-				
+							"paviravichennai@gmail.com".compareTo(mailId)==0)
+					||  ("ram_bhai".compareTo(users.get(j).name)==0 && 
+							"ramprasath.cse.cit@gmail.com".compareTo(mailId)==0)						
+					||  ("gibibyte".compareTo(users.get(j).name)==0 && 
+					"sreenidhi996@gmail.com".compareTo(mailId)==0)
+					||  ("aksh".compareTo(users.get(j).name)==0 && 
+					"akshayred@gmail.com".compareTo(mailId)==0)
+					|| ("nanduV".compareTo(users.get(j).name)==0 && 
+					"nanduvinodan@outlook.com".compareTo(mailId)==0)
+					|| ("Lobsteravr".compareTo(users.get(j).name)==0 && 
+					"arvind.piccolo@gmail.com".compareTo(mailId)==0)
+					|| ("kk".compareTo(users.get(j).name)==0 && 
+					"skirenkumar@yahoo.in".compareTo(mailId)==0)
+					|| ("Avi".compareTo(users.get(j).name)==0 && 
+					"avi2796@gmail.com".compareTo(mailId)==0)
+					|| ("mac".compareTo(users.get(j).name)==0 && 
+					"mac25796@gmail.com".compareTo(mailId)==0)
+					|| ("streetfunker".compareTo(users.get(j).name)==0 && 
+					"asarvindsrinath@gmail.com".compareTo(mailId)==0)
+					|| ("dk_11".compareTo(users.get(j).name)==0 && 
+					"deepakcr974@gmail.com".compareTo(mailId)==0)
+					|| ("srini".compareTo(users.get(j).name)==0 && 
+					"vijaysrinath5@rediffmail.com".compareTo(mailId)==0)
+					|| ("jk".compareTo(users.get(j).name)==0 && 
+					"kishor1996@gmail.com".compareTo(mailId)==0)
+					|| ("Arjun M".compareTo(users.get(j).name)==0 && 
+					"arjunmayilvaganan@gmail.com".compareTo(mailId)==0)
+					|| ("The Undertaker".compareTo(users.get(j).name)==0 && 
+					"hltejasurya@gmail.com".compareTo(mailId)==0)
+					|| ("adi08".compareTo(users.get(j).name)==0 && 
+					"v.adithyaganesan@gmail.com".compareTo(mailId)==0)
+					
+					|| (name.compareTo(users.get(j).name)==0 && mailId.compareTo("nikitaa2541997@gmail.com") !=0)
 				)											
 				{
 					users.get(j).userName = userName.trim();
@@ -103,7 +111,7 @@ public class ApplicationMain {
 				
 			}
 			if(!found){
-				//System.out.println((unranked++) +" Unable to find the rank for the user : "+name);
+//				System.out.println(" Unable to find the rank for the user : "+name);
 			}
 		}
 		System.out.println("email id's retrieved for :"+filteredUsers.size()+" users");
