@@ -12,7 +12,7 @@ import com.google.gdata.util.ServiceException;
 
 public class GoogleSpreadSheetAPI {
 
-	public static List<User> filterUsers(List<User> users, int year) throws MalformedURLException, IOException, ServiceException{
+	public static List<User> filterUsers(List<User> users) throws MalformedURLException, IOException, ServiceException{
 		List<User> filteredUsers = new ArrayList<User>();
 		final String SPREADSHEET_URL = "https://spreadsheets.google.com/feeds/spreadsheets/1x_Z5tlu_FyqU-9oGY-gSaMkRRHCj4kw2zckyylVOKyM"; //Fill in google spreadsheet URI       
 	    URL metafeedUrl = new URL(SPREADSHEET_URL);

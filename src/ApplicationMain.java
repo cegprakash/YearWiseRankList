@@ -96,6 +96,10 @@ public class ApplicationMain {
 					"hltejasurya@gmail.com".compareTo(mailId)==0)
 					|| ("adi08".compareTo(users.get(j).name)==0 && 
 					"v.adithyaganesan@gmail.com".compareTo(mailId)==0)
+					|| ("Raviji".compareTo(users.get(j).name)==0 && 
+					"ravisah5011997@gmail.com".compareTo(mailId)==0)
+					|| ("Pitti".compareTo(users.get(j).name)==0 && 
+					"anandpitti0784@gmail.com".compareTo(mailId)==0)					
 					
 					|| (name.compareTo(users.get(j).name)==0 && mailId.compareTo("nikitaa2541997@gmail.com") !=0)
 				)											
@@ -154,7 +158,7 @@ public class ApplicationMain {
 			users = getSpojRankList();
 			int totalParticipants = users.size();
 		    users = getEmails(users);	
-		    users = GoogleSpreadSheetAPI.filterUsers(users, 1);
+		    users = GoogleSpreadSheetAPI.filterUsers(users);
 		    Collections.sort(users);
 		    GoogleBloggerAPI.publishRankList(users, totalParticipants);	
 		    TimeUnit.MINUTES.sleep(1);
