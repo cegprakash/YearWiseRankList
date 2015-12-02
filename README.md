@@ -1,6 +1,6 @@
-Live year-wise leaderboard for http://spoj.com/AU9 contest here cegcodingcamp.blogspot.in/2015/01/ceg-coding-camp-ranklist.html
+Live year-wise leaderboard for http://spoj.com/AU9 and AU10 contest here cegcodingcamp.blogspot.in/2015/01/ceg-coding-camp-ranklist.html and http://cegcodingcamp.blogspot.in/2015/11/au10-live-ranklist.html
 
-Built using Eclipse IDE in Mac OS
+Built using Eclipse IDE
 
 Language used : JAVA
 
