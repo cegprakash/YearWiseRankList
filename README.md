@@ -1,6 +1,6 @@
-<b>Generates a Live year-wise leaderboard for AU Local contests.<b>
+<b>Generates a Live year-wise leaderboard for AU Local contests.</b>
 
-<b>Algorithm :<b>
+<b>Algorithm :</b>
 
 1) Read data (nickname, rank and number of problems solved) from spoj ranklist.
 
@@ -15,7 +15,7 @@ Resultant Leaderbaords :http://cegcodingcamp.blogspot.in/2015/01/ceg-coding-camp
 
 Built using Eclipse IDE
 
-Language used : <b>JAVA<b>
+Language used : <b>JAVA</b>
 
 Libraries used
 
