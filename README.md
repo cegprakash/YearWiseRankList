@@ -1,12 +1,12 @@
-Generates a Live year-wise leaderboard for AU Local contests.
+<b>Generates a Live year-wise leaderboard for AU Local contests.<b>
 
-Algorithm :
+<b>Algorithm :<b>
 
 1) Read data (nickname, rank and number of problems solved) from spoj ranklist.
 
 2) Find the email ids of the users in the rank list (from the Spoj groups page)
 
-3) Using the email id, fetch all other details of the user from google spreadsheet.
+3) Using the email id, fetch all other detail of the users from google spreadsheet.
 
 4) Generate the ranklist and publish into the blog.
 
@@ -15,7 +15,7 @@ Resultant Leaderbaords :http://cegcodingcamp.blogspot.in/2015/01/ceg-coding-camp
 
 Built using Eclipse IDE
 
-Language used : JAVA
+Language used : <b>JAVA<b>
 
 Libraries used
 
