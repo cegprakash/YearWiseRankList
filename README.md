@@ -3,8 +3,11 @@ Generates a Live year-wise leaderboard for AU Local contests.
 Algorithm :
 
 1) Read data (nickname, rank and number of problems solved) from spoj ranklist.
+
 2) Find the email ids of the users in the rank list (from the Spoj groups page)
+
 3) Using the email id, fetch all other details of the user from google spreadsheet.
+
 4) Generate the ranklist and publish into the blog.
 
 Used for the following contests : http://spoj.com/AU9, http://spoj.com/AU10
