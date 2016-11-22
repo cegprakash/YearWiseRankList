@@ -2,7 +2,7 @@ public class User implements Comparable<User>{
 	int rank;
 	String userName;
 	String name;
-	String email;
+	String spojID;
 	int problems_count;
 	String college;
 	String year;
